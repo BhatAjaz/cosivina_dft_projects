@@ -190,7 +190,7 @@ grid on
 %ylim([0 0.6]);
 
 %% Proportion looking to target at test vs Vlach & DeBrock 2019 (47-58 month olds)
-measurement_i = 'Proportion looking to target at test vs Vlach & Johnson 2019 (47-58 m)';
+measurement_i = 'Proportion of words learnt at test vs Vlach & Johnson 2019 (47-58 m)';
 empirical_mean_i = [3.556 4.111]./6;
 mean_i = [mean(sum(LearntWords(:,1:6),2)) mean(sum(LearntWords(:,7:12),2))]./6;
 SE_i = [SE(sum(LearntWords(:,1:6),2)) SE(sum(LearntWords(:,7:12),2))]./6;
@@ -199,13 +199,13 @@ row_i = {measurement_i, num2str(mean_i), num2str(SE_i), RMSE_i, MAPE_i}; T = [T;
 xx=[measurement_i,' = ', num2str(mean_i)]; disp(xx);
 xx=['RMSE = ', num2str(RMSE_i),' and ', 'MAPE = ', num2str(MAPE_i)]; disp(xx);
 
-figure(273)% Plot Massed vs Interleaved looking time during test trial
+figure(273)% Plot number of words learnt in Massed vs Interleaved conditions during test trial
 blockNames={'Massed'; 'Interleaved'};
 sts = [3.556 mean(sum(LearntWords(:,1:6),2)) ;  4.111 mean(sum(LearntWords(:,7:12),2)) ];
 errY =[1.042./sqrt(18)  SE(sum(LearntWords(:,1:6),2)) ;  0.900./sqrt(18)  SE(sum(LearntWords(:,7:12),2)) ];
 b=barwitherr(errY, sts);% Plot with errorbars
 set(gca,'xticklabel',blockNames, 'fontsize',16)
-ylabel('Mean prop of looking time to target');
+ylabel('Number of Correct Responses');
 legend('Vlach & Johnson 2019 (47-58 m)', 'WOLVES Model');
 grid on
 hold on
